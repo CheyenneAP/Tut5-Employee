@@ -87,3 +87,32 @@ HourlyEmployee::HourlyEmployee(string iemployeeName, int inumber)
 	income = 0.00;
 }
 // end
+
+
+// CommissionEmployee functions:
+CommissionEmployee::CommissionEmployee()
+{
+	employeeName = "Commission";
+	employeeID = 0;
+	numberOfEmployees++;
+	income = 0.00;
+}
+
+CommissionEmployee::CommissionEmployee(string iname, int inum)
+{
+	employeeName = iname;
+
+	if (inum >= 0){
+		employeeID = inum;
+	}
+	else{
+
+		cout << "employee ID number entered is invalid." << endl;
+		cout << "Please enter a valid ID number" << endl;
+		cin >> employeeID;
+	}
+
+	numberOfEmployees++;
+	income = 0.00;
+}
+
