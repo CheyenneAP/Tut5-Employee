@@ -55,3 +55,35 @@ SalaryEmployee::SalaryEmployee(string iemployeeName, int iNumber){
 	income = 0.00;
 }
 // end
+
+
+//HourlyEmployee methods
+HourlyEmployee::HourlyEmployee(){
+	// stating the type of the employee
+	// assigning default values 
+	employeeName = "Hourly";
+	employeeID = 0;
+	numberOfEmployees++;
+	income = 0.00;
+}
+// end
+
+
+//assign  correct values and catch errors using conditions 
+HourlyEmployee::HourlyEmployee(string iemployeeName, int inumber)
+{
+	employeeName = iemployeeName;
+
+	if (inumber >= 0){
+		employeeID = inumber;
+	}
+	else{
+		cout << "employee ID number entered is invalid." << endl;
+		cout << "Please enter a valid ID number" << endl;
+		cin >> employeeID;
+	}
+
+	numberOfEmployees++;
+	income = 0.00;
+}
+// end
