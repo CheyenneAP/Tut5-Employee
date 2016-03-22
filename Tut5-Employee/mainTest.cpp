@@ -59,5 +59,13 @@ int main(){
 	cout << endl;
 
 
+	//dismissal condition
+	cout << "Sorry " << arrayMkr[2]->name() << " you have been dismissed because you have been slacking!!! " << endl;
+	cout << endl;
+	//remove the dismissed employee
+	delete arrayMkr[2];
+	cout << "Number of employees after the cut : " << Employee::numberOfEmployees - 1 << endl;
+	cout << endl;
+
 
 }
