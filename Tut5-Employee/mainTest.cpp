@@ -48,4 +48,16 @@ int main(){
 	cout << "Total number of employees: " << Employee::numberOfEmployees << endl;
 	cout << endl;
 
+	int sumIncome = 0;
+
+	// find total accumulated salary
+	for (int i = 0; i<3; i++){
+		sumIncome = sumIncome + (arrayMkr[i]->salary());
+	}
+
+	cout << "The total accumulated  salary for employees is : " << sumIncome << endl;
+	cout << endl;
+
+
+
 }
