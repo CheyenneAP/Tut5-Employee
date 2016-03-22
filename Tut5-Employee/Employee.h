@@ -7,9 +7,9 @@ class Employee{
 private:
 	//none so far
 protected:
-	      string employeeName = "";
-		  float salary;
-		  int numberOfEmployees;
+	string employeeName = "";
+	float income;
+	int employeeID;
 public:
 	static int numberOfEmployees;
 	Employee();
@@ -19,9 +19,9 @@ public:
 	virtual string name() = 0; // returns name as a string
 	virtual float salary() = 0; // returns the amount of money at the end of the month
 	virtual int staffNumber() = 0; //returns a positive integer
-	
-	
-	
+
+
+
 };
 
 // Derive 3 classes SalaryEmployee,HourlyEmployee,CommissionEmployee from Employee 
@@ -30,7 +30,7 @@ public:
 //SalaryEmployee class
 class SalaryEmployee : public Employee{
 private:
-	
+
 	float monthSalary;
 public:
 	SalaryEmployee();
@@ -51,25 +51,25 @@ public:
 // HourlyEmployee class
 class HourlyEmployee :public Employee{
 private:
-	
-	     float hourRate;
-		 int numHoursWorked;
+
+	float hourRate;
+	int numHoursWorked;
 
 public:
 
-	    HourlyEmployee();
-		~HourlyEmployee();
-		HourlyEmployee(string, int);
-		
+	HourlyEmployee();
+	~HourlyEmployee();
+	HourlyEmployee(string, int);
 
-		// methods
-		float setHourlyRate(float);// set hourly rate
-		int setHoursWorked(int); // set hours worked
 
-		// overwrite the default values 
-		string name();
-		float salary();
-		int staffNumber();
+	// methods
+	float setHourlyRate(float);// set hourly rate
+	int setHoursWorked(int); // set hours worked
+
+	// overwrite the default values 
+	string name();
+	float salary();
+	int staffNumber();
 };
 
 //  CommissionEmployee class
@@ -77,22 +77,22 @@ public:
 class CommissionEmployee : public Employee{
 private:
 	float baseSalary, commissionRate, revenueGen;
-		 
+
 
 public:
-	     CommissionEmployee();
-		~CommissionEmployee();
-		CommissionEmployee(string, int);
-		
+	CommissionEmployee();
+	~CommissionEmployee();
+	CommissionEmployee(string, int);
 
-		// methods
-		float setBaseSalary(float); // setting the base salary
-		float setRate(float);// setting the setRate
-		float setRevenue(float); // setting the revenue
 
-		//overwrite the defaults values 
-		string name();
-		float salary();
-		int staffNumber();
+	// methods
+	float setBaseSalary(float); // setting the base salary
+	float setRate(float);// setting the setRate
+	float setRevenue(float); // setting the revenue
+
+	//overwrite the defaults values 
+	string name();
+	float salary();
+	int staffNumber();
 };
 
