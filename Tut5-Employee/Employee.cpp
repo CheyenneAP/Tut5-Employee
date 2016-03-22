@@ -3,17 +3,12 @@
 #include <string>
 using namespace std;
 
-
-
 //global variable to increment and decrement in constructors as it is required.
 int Employee::numberOfEmployees = 0;
 Employee::Employee(){}
-// end constructor
 
 
 Employee::~Employee(){}
-//end destructor
-
 // writing the functions derived in header class 
 
 
@@ -24,12 +19,13 @@ SalaryEmployee::SalaryEmployee(){
 	numberOfEmployees++;
 	income = 0.00; // format 
 }
-// end  salary employee constructor
-//assigning default values
+// end
 
 
-SalaryEmployee::~SalaryEmployee(){ numberOfEmployees--; }
-// end destructor
+SalaryEmployee::~SalaryEmployee(){numberOfEmployees--;}
+// end
+
+
 
 SalaryEmployee::SalaryEmployee(string iemployeeName, int iNumber){
 	employeeName = iemployeeName;
@@ -44,17 +40,18 @@ SalaryEmployee::SalaryEmployee(string iemployeeName, int iNumber){
 		cin >> employeeID;
 	}
 
-	// once details are checked a new employee is added  and their income starts at 0
+	// once details are checked a new employee is added  nd their income starts at 0
 	numberOfEmployees++;
 	income = 0.00;
 }
 // end
 
 
+
 //HourlyEmployee methods
 HourlyEmployee::HourlyEmployee(){
-	// stating the type of the employee
-	// assigning default values 
+	// type of employee
+	// assign default values 
 	employeeName = "Hourly";
 	employeeID = 0;
 	numberOfEmployees++;
@@ -62,8 +59,6 @@ HourlyEmployee::HourlyEmployee(){
 }
 // end
 
-
-//assign  correct values and catch errors using conditions 
 HourlyEmployee::HourlyEmployee(string iemployeeName, int inumber){
 	employeeName = iemployeeName;
 
@@ -81,23 +76,24 @@ HourlyEmployee::HourlyEmployee(string iemployeeName, int inumber){
 }
 // end
 
-
 // CommissionEmployee functions:
 CommissionEmployee::CommissionEmployee(){
+	// type of employee
+	// assign default values 
 	employeeName = "Commission";
 	employeeID = 0;
 	numberOfEmployees++;
 	income = 0.00;
 }
 
-CommissionEmployee::CommissionEmployee(string iname, int inum){
+CommissionEmployee::CommissionEmployee(string iname, int inum)
+{
 	employeeName = iname;
 
 	if (inum >= 0){
 		employeeID = inum;
 	}
 	else{
-
 		cout << "employee ID number entered is invalid." << endl;
 		cout << "Please enter a valid ID number" << endl;
 		cin >> employeeID;
@@ -106,61 +102,50 @@ CommissionEmployee::CommissionEmployee(string iname, int inum){
 	numberOfEmployees++;
 	income = 0.00;
 }
-//end
+
+
+
 
 
 //  setting and getting values for the three classes
 //using accessor and mutator methods
 float SalaryEmployee::setSalary(const float iIncome){
-	//setting the salary
 	monthSalary = iIncome;
-}
-
-int SalaryEmployee::staffNumber(){return employeeID;}
-
-float SalaryEmployee::salary(){
-	//getter method to return the salary
 	return monthSalary;
 }
 
+float SalaryEmployee::salary(){return monthSalary;}
+
 string SalaryEmployee::name(){return employeeName;}
 
+int SalaryEmployee::staffNumber(){return employeeID;}
 
 // 
-HourlyEmployee::~HourlyEmployee(){ numberOfEmployees--; }
-
-
-int HourlyEmployee::setHoursWorked(int iHr){
-	numHoursWorked = iHr;
-	return numHoursWorked;}
+HourlyEmployee::~HourlyEmployee(){numberOfEmployees--;}
 
 float HourlyEmployee::setHourlyRate(float iHS){
 	hourRate = iHS;
-	return hourRate;}
+	return hourRate;
+}
 
-int HourlyEmployee::staffNumber(){
-	return employeeID;}
-
-
+int HourlyEmployee::setHoursWorked(int iHr){
+	numHoursWorked = iHr;
+	return numHoursWorked;
+}
 
 float HourlyEmployee::salary(){
 	income = hourRate*numHoursWorked;
-	return income;}
+	return income;
+}
 
-string HourlyEmployee::name(){
-	return employeeName;}
+string HourlyEmployee::name(){return employeeName;}
 
-
+int HourlyEmployee::staffNumber(){return employeeID;}
 
 // getting and setting values in the Commissionemployee class
 
-CommissionEmployee::~CommissionEmployee(){ numberOfEmployees--; }
-
-
-
-float CommissionEmployee::setRate(float irate){
-	commissionRate = irate;
-	return commissionRate;
+CommissionEmployee::~CommissionEmployee(){
+	numberOfEmployees--;
 }
 
 float CommissionEmployee::setBaseSalary(float iBSal){
@@ -168,19 +153,15 @@ float CommissionEmployee::setBaseSalary(float iBSal){
 	return baseSalary;
 }
 
-
-float CommissionEmployee::setRevenue(float iReven){
-	revenueGen = iReven;
-	return revenueGen;
+float CommissionEmployee::setRate(float irate){
+	commissionRate = irate;
+	return commissionRate;
 }
 
-float CommissionEmployee::salary(){
-	income = baseSalary + commissionRate*revenueGen;
-	return income;}
+float CommissionEmployee::setRevenue(float iReven){revenueGen = iReven;return revenueGen;}
+
+float CommissionEmployee::salary(){ income = baseSalary + commissionRate*revenueGen; return income;}
+
+string CommissionEmployee::name(){return employeeName;}
 
 int CommissionEmployee::staffNumber(){return employeeID;}
-
-string CommissionEmployee::name(){ return employeeName;}
-
-
-

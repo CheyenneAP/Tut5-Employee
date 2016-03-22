@@ -2,26 +2,18 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int main(){
 
 
+int main()
+{
+	float income;
 	// assigning values for employees
-	HourlyEmployee *eHr = new HourlyEmployee("Thykara", 214584562);
+
 	SalaryEmployee *eSal = new SalaryEmployee("Cheyenne", 214513360);
+	HourlyEmployee *eHr = new HourlyEmployee("Thykara", 214584562);
 	CommissionEmployee *eCo = new CommissionEmployee("Raina", 214563254);
 
-
-
-	// pointer for array
 	Employee *arrayMkr[3];
-
-
-
-	//fill array with  3 objects
-	arrayMkr[0] = eSal;
-	arrayMkr[1] = eHr;
-	arrayMkr[2] = eCo;
-
 	// set salary
 	eSal->setSalary(20000);
 	//set hourly attributes
@@ -32,7 +24,10 @@ int main(){
 	eCo->setRate(0.40);
 	eCo->setRevenue(12000.6);
 
-
+	//fill array with  3 objects
+	arrayMkr[0] = eSal;
+	arrayMkr[1] = eHr;
+	arrayMkr[2] = eCo;
 
 	//display employee and salary details
 	cout << endl;
@@ -58,6 +53,17 @@ int main(){
 	cout << "The total accumulated  salary for employees is : " << sumIncome << endl;
 	cout << endl;
 
+	cout << "_____________________________________________________________________________________________________________________" << endl;
+
+	if ((arrayMkr[0]->salary()) > (arrayMkr[1]->salary())){
+		cout << "Congrads " << arrayMkr[0]->name() << " You are the Employee of the month " << "You will get the dayoff" << endl;
+		
+	}
+	else{
+		cout << " Congrads " << arrayMkr[1]->name() << " You are the Employee of the month:)" << "You will get the day off" << endl;
+		
+	}
+	cout << endl;
 
 	//dismissal condition
 	cout << "Sorry " << arrayMkr[2]->name() << " you have been dismissed because you have been slacking!!! " << endl;
@@ -66,6 +72,5 @@ int main(){
 	delete arrayMkr[2];
 	cout << "Number of employees after the cut : " << Employee::numberOfEmployees - 1 << endl;
 	cout << endl;
-
 
 }
