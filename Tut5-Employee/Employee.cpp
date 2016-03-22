@@ -28,7 +28,7 @@ SalaryEmployee::SalaryEmployee(){
 //assigning default values
 
 
-SalaryEmployee::~SalaryEmployee(){}
+SalaryEmployee::~SalaryEmployee(){ numberOfEmployees--; }
 // end destructor
 
 SalaryEmployee::SalaryEmployee(string iemployeeName, int iNumber){
@@ -127,7 +127,7 @@ string SalaryEmployee::name(){return employeeName;}
 
 
 // 
-HourlyEmployee::~HourlyEmployee(){}
+HourlyEmployee::~HourlyEmployee(){ numberOfEmployees--; }
 
 
 int HourlyEmployee::setHoursWorked(int iHr){
@@ -154,7 +154,7 @@ string HourlyEmployee::name(){
 
 // getting and setting values in the Commissionemployee class
 
-CommissionEmployee::~CommissionEmployee(){}
+CommissionEmployee::~CommissionEmployee(){ numberOfEmployees--; }
 
 
 
